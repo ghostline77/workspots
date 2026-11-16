@@ -1,0 +1,23 @@
+{
+  "game": "PATH_TO_GAME",
+  "worker": "../renderer/target/release/examples/workspot_worker.exe",
+  "characters": [
+    {
+      "name": "Male NPC",
+      "rig": "male",
+      "entity": "mod/example/characters/male.ent",
+      "appearance": "default",
+      "overlays": ["PATH_TO_BUILT_CHARACTER.archive"],
+      "project": "PATH_TO_CHARACTER.character.json",
+      "origin_anchors": ["Component"]
+    },
+    {
+      "name": "Female NPC",
+      "rig": "female",
+      "entity": "mod/example/characters/female.ent",
+      "appearance": "default",
+      "overlays": ["PATH_TO_BUILT_CHARACTER.archive"],
+      "origin_anchors": ["Component"]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "type": "module",
+  "name": "@ghostline/workspots-ui",
+  "scripts": {
+    "build": "node ../../ui-core/tooling/build-ui.mjs ."
+  },
+  "dependencies": {
+    "@ghostline/ui-core": "*",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.187.0"
+  }
+}
