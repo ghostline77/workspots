@@ -2,19 +2,15 @@
 
 ## Run
 
-Requires Rust 1.92+, Node 20+, FFmpeg/FFprobe, the sibling
-UI workspace dependencies and a native game installation. Reflection metadata is
+Requires Rust 1.92+, Node 20+, FFmpeg/FFprobe and a native game installation. Reflection metadata is
 bundled with the native helpers; the optional `schema` configuration field supplies
 an advanced override.
 
 Build the streaming renderer and UI:
 
 ```powershell
-cargo build --release --locked --manifest-path ../renderer/Cargo.toml --example workspot_worker
-cargo build --release --locked --manifest-path ../renderer/Cargo.toml --example workspot_browser
-cargo build --release --locked --manifest-path ../renderer/Cargo.toml --example workspot_archive
+cargo install --locked --git https://github.com/ghostline77/renderer --example workspot_worker --example workspot_browser --example workspot_archive
 cargo build --release --locked
-node ../ui-core/tooling/build-ui.mjs ui
 ```
 
 Create `work/config.json` using `config.example.json`. Character archives are
@@ -148,9 +144,8 @@ and native animation previews, allowing repeatable pose comparisons.
 cargo test --locked
 cargo clippy --locked --all-targets -- -D warnings
 cargo fmt --check
-node ../ui-core/node_modules/typescript/bin/tsc --noEmit --strict --skipLibCheck --target ES2022 --module ESNext --moduleResolution Bundler --jsx react-jsx ui/src/main.tsx
-node ../ui-core/tooling/build-ui.mjs ui
-node ../ui-core/node_modules/tsx/dist/cli.mjs --test ui/tests/nativeSkinning.test.ts
+npm --prefix ui run typecheck
+npm --prefix ui test
 ```
 
-Renderer changes also require the checks in `../renderer/AGENTS.md`.
+Point `worker` in your config to the installed workspot_worker executable. Keep the three workers in the same directory.

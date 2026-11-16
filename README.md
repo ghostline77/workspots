@@ -6,8 +6,7 @@ playback and a resumable queue of rendered videos.
 
 ## Start
 
-Use Rust 1.92+, Node 20+, FFmpeg and FFprobe. Keep the sibling
-`ghostline-red`, `renderer` and `ui-core` repositories available.
+Use Rust 1.92+, Node 20+, FFmpeg and FFprobe. Install the renderer workers using the commands in the setup guide.
 The service needs an existing workspot catalogue containing its plan, databases
 and source previews. See [setup and commands](docs/usage.md#run).
 

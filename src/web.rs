@@ -263,9 +263,28 @@ pub fn router(app: App) -> Router {
             "/media/original",
             ServeDir::new(app.catalogue.join("previews")),
         )
-        .fallback_service(ServeDir::new(
-            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("ui/dist"),
-        ))
+        .route(
+            "/",
+            get(|| async { axum::response::Html(include_str!("../ui/dist/index.html")) }),
+        )
+        .route(
+            "/app.js",
+            get(|| async {
+                (
+                    [(header::CONTENT_TYPE, "text/javascript")],
+                    include_str!("../ui/dist/app.js"),
+                )
+            }),
+        )
+        .route(
+            "/style.css",
+            get(|| async {
+                (
+                    [(header::CONTENT_TYPE, "text/css")],
+                    include_str!("../ui/dist/style.css"),
+                )
+            }),
+        )
         .layer(DefaultBodyLimit::max(65536))
         .layer(middleware::from_fn_with_state(app.clone(), local_request))
         .with_state(app)

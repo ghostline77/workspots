@@ -1,6 +1,6 @@
 {
   "game": "PATH_TO_GAME",
-  "worker": "../renderer/target/release/examples/workspot_worker.exe",
+  "worker": "PATH_TO_RENDERER_WORKERS/workspot_worker.exe",
   "characters": [
     {
       "name": "Male NPC",

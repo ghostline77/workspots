@@ -3,15 +3,23 @@
   "type": "module",
   "name": "@ghostline/workspots-ui",
   "scripts": {
-    "build": "node ../../ui-core/tooling/build-ui.mjs ."
+    "build": "npm run typecheck && node build.mjs",
+    "dev": "node build.mjs --dev",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts"
   },
   "dependencies": {
-    "@ghostline/ui-core": "*",
+    "@ghostline/ui-core": "git+https://github.com/ghostline77/ui-core.git",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "three": "^0.187.0"
   },
   "devDependencies": {
-    "@types/three": "^0.187.0"
+    "@types/three": "^0.187.0",
+    "typescript": "^5.9.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "vite": "^6.4.5",
+    "tsx": "^4.21.0"
   }
 }
