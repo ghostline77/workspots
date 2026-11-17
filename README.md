@@ -6,7 +6,9 @@ playback and a resumable queue of rendered videos.
 
 ## Start
 
-Use Rust 1.92+, Node 20+, FFmpeg and FFprobe. Install the renderer workers using the commands in the setup guide.
+With the Windows distribution, extract the separate `workspots-catalogue.zip` and pass its directory to `--catalogue`. Set the `worker` entry in your config to the included `workspot_worker.exe`. Keep all three worker executables together.
+
+To build from source, use Rust 1.92+, Node 20+, FFmpeg and FFprobe. Install the renderer workers using the commands in the setup guide.
 The service needs an existing workspot catalogue containing its plan, databases
 and source previews. See [setup and commands](docs/usage.md#run).
 
